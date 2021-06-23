@@ -1,5 +1,6 @@
 import "./App.css";
 import products from "./products";
+import Home from "./components/Home";
 
 function App() {
   const productsList = products.map((product) => (
@@ -11,6 +12,7 @@ function App() {
   ));
   return (
     <div>
+      <Home />
       <div>
         <h1 className="text">Thrift Shop</h1>
         <h4 className="text">cheap clothing for the cheap</h4>
