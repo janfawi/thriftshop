@@ -1,22 +1,22 @@
-.text {
+/* .text {
   text-align: center;
-}
+} */
 .shop-image {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
 }
-.product-image {
+/* .product-image {
   width: 200px;
   height: 200px;
-}
+} */
 .list {
   align-items: center;
   justify-content: center;
   display: flex;
 }
 
-.product {
+/* .product {
   margin: 20px;
-}
+} */

@@ -1,15 +1,15 @@
 import React from "react";
 // import products from "../products";
-
+import { ProductWrapper } from "../styles";
 const ProductItem = (props) => {
   const product = props.product;
 
   return (
-    <div className="product">
-      <img className="product-image" alt={product.name} src={product.image} />
-      <p className="text">{product.name}</p>
-      <p className="text">{product.price} KD</p>
-    </div>
+    <ProductWrapper>
+      <img alt={product.name} src={product.image} />
+      <p>{product.name}</p>
+      <p className="cookie-price">{product.price} KD</p>
+    </ProductWrapper>
   );
 };
 export default ProductItem;

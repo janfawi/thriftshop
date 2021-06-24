@@ -1,6 +1,8 @@
 import React from "react";
 import products from "../products";
 import ProductItem from "./ProductItem";
+//import styled component
+import { ListWrapper } from "../styles";
 
 const ProductsList = () => {
   const ProductsList = products.map((product) => (
@@ -12,7 +14,7 @@ const ProductsList = () => {
   //   <p className="text">{product.price}</p>
   // </div>
   //   ));
-  return <div className="list"> {ProductsList} </div>;
+  return <ListWrapper> {ProductsList} </ListWrapper>;
 };
 
 export default ProductsList;

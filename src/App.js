@@ -2,10 +2,17 @@ import "./App.css";
 import products from "./products";
 import Home from "./components/Home";
 import ProductsList from "./components/ProductsList";
-
+import { GlobalStyle } from "./styles";
+import { ThemeProvider } from "styled-components";
 function App() {
+  const theme = {
+    mainColor: "#242424", // main font color
+    backgroundColor: "#fefafb", // main background color
+    pink: "#ff85a2",
+  };
   return (
-    <div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Home />
       <ProductsList />
 
@@ -27,7 +34,7 @@ function App() {
           <p className="text">shoes</p>
           <p className="text">3 KD</p> */}
       {/* </div> */}
-    </div>
+    </ThemeProvider>
   );
 }
 
