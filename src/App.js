@@ -1,30 +1,15 @@
 import "./App.css";
 import products from "./products";
 import Home from "./components/Home";
+import ProductsList from "./components/ProductsList";
 
 function App() {
-  const productsList = products.map((product) => (
-    <div className="product">
-      <img className="product-image" alt={product.name} src={product.image} />
-      <p className="text">{product.name}</p>
-      <p className="text">{product.price}</p>
-    </div>
-  ));
   return (
     <div>
       <Home />
-      <div>
-        <h1 className="text">Thrift Shop</h1>
-        <h4 className="text">cheap clothing for the cheap</h4>
-        <img
-          className="shop-image"
-          alt="Thrift shop"
-          src="http://www.hawaii.edu/news/wp-content/uploads/2017/08/manoa-thrift-store-merchandise.jpg"
-        />
-      </div>
-      <div className="list">
-        {productsList}
-        {/* <div className="product">
+      <ProductsList />
+
+      {/* <div className="product">
           <img
             className="product-image"
             alt="dress"
@@ -41,8 +26,7 @@ function App() {
           />
           <p className="text">shoes</p>
           <p className="text">3 KD</p> */}
-        {/* </div> */}
-      </div>
+      {/* </div> */}
     </div>
   );
 }
