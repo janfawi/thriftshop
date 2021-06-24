@@ -1,10 +1,10 @@
 import React from "react";
 import products from "../products";
-import productItem from "./productItem";
+import ProductItem from "./ProductItem";
 
 const ProductsList = () => {
-  const productsList = products.map((product) => (
-    <productItem product={product} />
+  const ProductsList = products.map((product) => (
+    <ProductItem product={product} />
   ));
   // <div className="product">
   //   <img className="product-image" alt={product.name} src={product.image} />
@@ -12,7 +12,7 @@ const ProductsList = () => {
   //   <p className="text">{product.price}</p>
   // </div>
   //   ));
-  //   return <div className="list"> {productsList} </div>;
+  return <div className="list"> {ProductsList} </div>;
 };
 
 export default ProductsList;
