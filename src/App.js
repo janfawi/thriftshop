@@ -10,9 +10,8 @@ function App() {
   const toggleCurrentTheme = () => {
     // ternary
     // currentTheme === "light"
-    //   ? setCurrentTheme("dark")
-    //   : setCurrentTheme("light");
-
+    //   ? (setCurrentTheme("dark"), setButtonText("light mode"))
+    //   : (setCurrentTheme("light"), setButtonText("dark mode"));
     if (currentTheme === "light") {
       setCurrentTheme("dark");
       setButtonText("light mode");
