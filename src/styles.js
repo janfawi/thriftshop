@@ -1,9 +1,6 @@
 // styled component
 import styled, { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
-${
-  "" /* i didnt need to pass theme.currentTheme.maincolor,,,, as its already passing it here (((its already passing it as object))) */
-}
 
 body {
   
@@ -54,4 +51,17 @@ export const Searchbarstyled = styled.input`
   margin: 1rem auto;
   display: block;
   width: 40%;
+`;
+export const DetailsWrapper = styled.div`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  img {
+    width: 40%;
+    float: left;
+  }
+  p {
+    vertical-align: middle;
+  }
 `;

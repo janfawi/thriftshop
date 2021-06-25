@@ -5,7 +5,7 @@ import { useState } from "react";
 //import styled component
 import { ListWrapper } from "../styles";
 import Searchbar from "./Searchbar";
-const ProductsList = () => {
+const ProductsList = (props) => {
   const [input, setinput] = useState("");
   console.log(input);
 
@@ -16,14 +16,12 @@ const ProductsList = () => {
   );
 
   const ProductRenderMap = ProductsListFilter.map((product) => (
-    <ProductItem product={product} key={product.id} />
+    <ProductItem
+      setproduct={props.setproduct}
+      product={product}
+      key={product.id}
+    />
   ));
-
-  //  const ProductsList = products.filter((product) =>
-  //   product.name.includes(input).map((product) => (
-  //   <ProductItem product={product} key={product.id} />
-  // ));
-  // );
 
   return (
     <div>
