@@ -6,10 +6,10 @@ import { ListWrapper } from "../styles";
 
 const ProductsList = () => {
   const ProductsList = products.map((product) => (
-    <ProductItem product={product} />
+    <ProductItem product={product} key={product.id} />
   ));
   // <div className="product">
-  //   <img className="product-image" alt={product.name} src={product.image} />
+  //   <img className="prduct-image" alt={product.name} src={product.image} />
   //   <p className="text">{product.name}</p>
   //   <p className="text">{product.price}</p>
   // </div>

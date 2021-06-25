@@ -3,9 +3,8 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 body {
-    color: #242424;
-    background-color: #fefafb
-  }
+    color: ${(props) => props.theme.mainColor};
+    background-color: ${(props) => props.theme.backgroundColor}
 `;
 
 export const Title = styled.h1`
@@ -35,8 +34,8 @@ export const ProductWrapper = styled.div`
   p {
     text-align: center;
 
-    &.cookie-price {
-      color: #ff85a2;
+    &.product-price {
+      color: ${(props) => props.theme.pink};
     }
   }
 `;

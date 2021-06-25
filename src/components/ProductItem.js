@@ -8,7 +8,7 @@ const ProductItem = (props) => {
     <ProductWrapper>
       <img alt={product.name} src={product.image} />
       <p>{product.name}</p>
-      <p className="cookie-price">{product.price} KD</p>
+      <p className="product-price">{product.price} KD</p>
     </ProductWrapper>
   );
 };
