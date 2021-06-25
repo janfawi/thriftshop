@@ -2,7 +2,12 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+${
+  "" /* i didnt need to pass theme.currentTheme.maincolor,,,, as its already passing it here (((its already passing it as object))) */
+}
+
 body {
+  
     color: ${(props) => props.theme.mainColor};
     background-color: ${(props) => props.theme.backgroundColor}
 `;
@@ -38,4 +43,9 @@ export const ProductWrapper = styled.div`
       color: ${(props) => props.theme.pink};
     }
   }
+`;
+
+export const ButtonColor = styled.button`
+  background: purple;
+  color: white;
 `;
