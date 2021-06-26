@@ -9,7 +9,6 @@ import products from "./products";
 
 function App() {
   const [product, setproduct] = useState(null);
-  console.log("this is from app", product);
   const [currentTheme, setCurrentTheme] = useState("light");
   const toggleCurrentTheme = () => {
     if (currentTheme === "light") {
@@ -34,24 +33,35 @@ function App() {
       pink: "#ff85a2",
     },
   };
+  // 08 product delete
+  const [_products, setProducts] = useState(products);
 
-  // list vs detail
   const setView = () => {
-    // product ? (
-    //  return
-    //  <ProductDetail product={product} />
-    // ) : (
-    //   <ProductsList setproduct={setproduct} />
-    // );
     if (product)
       return (
         <>
-          <ProductDetail product={product} />
+          <ProductDetail
+            product={product}
+            deleteProduct={deleteProduct}
+            setproduct={setproduct}
+          />
           <button onClick={() => setproduct(null)}>Go Back</button>
         </>
       );
-    else return <ProductsList setproduct={setproduct} />;
+    else
+      return (
+        <ProductsList
+          deleteProduct={deleteProduct}
+          products={_products}
+          setproduct={setproduct}
+        />
+      );
   };
+  const deleteProduct = (id) => {
+    const updatedlist = _products.filter((product) => product.id !== id);
+    setProducts(updatedlist);
+  };
+
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />

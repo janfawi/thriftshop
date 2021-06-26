@@ -1,5 +1,6 @@
 import React from "react";
 import { DetailsWrapper } from "../styles";
+import DeleteButton from "./buttons/DeleteButton";
 
 const ProductDetail = (props) => {
   console.log(props);
@@ -12,6 +13,11 @@ const ProductDetail = (props) => {
 
         <img src={props.product.image} alt={props.product.name} />
       </DetailsWrapper>
+      <DeleteButton
+        setproduct={props.setproduct}
+        productid={props.product.id}
+        deleteProduct={props.deleteProduct}
+      />
     </>
   );
 };

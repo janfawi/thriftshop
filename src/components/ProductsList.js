@@ -1,5 +1,4 @@
 import React from "react";
-import products from "../products";
 import ProductItem from "./ProductItem";
 import { useState } from "react";
 //import styled component
@@ -8,6 +7,7 @@ import Searchbar from "./Searchbar";
 const ProductsList = (props) => {
   const [input, setinput] = useState("");
   console.log(input);
+  const products = props.products;
 
   const ProductsListFilter = products.filter(
     (product) =>
@@ -17,6 +17,7 @@ const ProductsList = (props) => {
 
   const ProductRenderMap = ProductsListFilter.map((product) => (
     <ProductItem
+      deleteProduct={props.deleteProduct}
       setproduct={props.setproduct}
       product={product}
       key={product.id}

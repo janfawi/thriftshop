@@ -65,3 +65,7 @@ export const DetailsWrapper = styled.div`
     vertical-align: middle;
   }
 `;
+export const DeleteButtonStyled = styled.button`
+  background: purple;
+  color: white;
+`;
