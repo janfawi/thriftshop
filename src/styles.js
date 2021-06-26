@@ -1,6 +1,10 @@
 // styled component
+
+import { Link } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
+${"" /* import { Link } from "react-router-dom"; */}
+
 
 body {
   
@@ -42,8 +46,11 @@ export const ProductWrapper = styled.div`
 `;
 
 export const ButtonColor = styled.button`
-  background: purple;
-  color: white;
+  font-size: 1em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  background-color: ${(props) => props.theme.mainColor};
+  color: ${(props) => props.theme.backgroundColor};
 `;
 
 export const Searchbarstyled = styled.input`
@@ -68,4 +75,10 @@ export const DetailsWrapper = styled.div`
 export const DeleteButtonStyled = styled.button`
   background: purple;
   color: white;
+`;
+export const Logo = styled(Link)`
+  padding: 0.75em;
+  img {
+    width: 8rem;
+  }
 `;

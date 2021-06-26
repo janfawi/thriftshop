@@ -1,12 +1,16 @@
 import "./App.css";
 import Home from "./components/Home";
 import ProductsList from "./components/ProductsList";
-import { GlobalStyle, ButtonColor } from "./styles";
+import { GlobalStyle, ButtonColor, Logo } from "./styles";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import ProductDetail from "./components/ProductDetail";
 import products from "./products";
-
+import { Route, Switch } from "react-router";
+import { Link } from "react-router-dom";
+import LightLogo from "./t2.png";
+import darkLogo from "./t1.png";
+import NavBar from "./components/NavBar";
 function App() {
   const [product, setproduct] = useState(null);
   const [currentTheme, setCurrentTheme] = useState("light");
@@ -65,9 +69,25 @@ function App() {
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
-      <ButtonColor onClick={toggleCurrentTheme}>{buttonText}</ButtonColor>
-      <Home />
-      {setView()}
+      <NavBar
+        currentTheme={currentTheme}
+        toggleCurrentTheme={toggleCurrentTheme}
+        buttonText={buttonText}
+      />
+      <Switch>
+        <Route path="/products">
+          <ProductsList
+            deleteProduct={deleteProduct}
+            products={_products}
+            setproduct={setproduct}
+          />
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
+
+      {/* {setView()} */}
     </ThemeProvider>
   );
 }
