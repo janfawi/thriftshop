@@ -18,7 +18,6 @@ const ProductsList = (props) => {
   const ProductRenderMap = ProductsListFilter.map((product) => (
     <ProductItem
       deleteProduct={props.deleteProduct}
-      setproduct={props.setproduct}
       product={product}
       key={product.id}
     />

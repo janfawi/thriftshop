@@ -1,21 +1,28 @@
 import React from "react";
 import { DetailsWrapper } from "../styles";
 import DeleteButton from "./buttons/DeleteButton";
+import { Redirect, useParams } from "react-router-dom";
 
 const ProductDetail = (props) => {
-  console.log(props);
+  // console.log(props);
+  const productSlug = useParams().productSlug;
+  const product = props.products.find(
+    (product) => product.slug === productSlug
+  );
+  // const product = props.product[0];
+
+  if (!product) return <Redirect to="/products" />;
   return (
     <>
       <DetailsWrapper>
-        <p>{props.product.description}</p>
-        <p>{props.product.price} KD</p>
-        <p>{props.product.name}</p>
+        <p>{product.description}</p>
+        <p>{product.price} KD</p>
+        <p>{product.name}</p>
 
-        <img src={props.product.image} alt={props.product.name} />
+        <img src={product.image} alt={product.name} />
       </DetailsWrapper>
       <DeleteButton
-        setproduct={props.setproduct}
-        productid={props.product.id}
+        productid={product.id}
         deleteProduct={props.deleteProduct}
       />
     </>

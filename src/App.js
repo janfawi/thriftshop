@@ -12,7 +12,6 @@ import LightLogo from "./t2.png";
 import darkLogo from "./t1.png";
 import NavBar from "./components/NavBar";
 function App() {
-  const [product, setproduct] = useState(null);
   const [currentTheme, setCurrentTheme] = useState("light");
   const toggleCurrentTheme = () => {
     if (currentTheme === "light") {
@@ -40,27 +39,6 @@ function App() {
   // 08 product delete
   const [_products, setProducts] = useState(products);
 
-  const setView = () => {
-    if (product)
-      return (
-        <>
-          <ProductDetail
-            product={product}
-            deleteProduct={deleteProduct}
-            setproduct={setproduct}
-          />
-          <button onClick={() => setproduct(null)}>Go Back</button>
-        </>
-      );
-    else
-      return (
-        <ProductsList
-          deleteProduct={deleteProduct}
-          products={_products}
-          setproduct={setproduct}
-        />
-      );
-  };
   const deleteProduct = (id) => {
     const updatedlist = _products.filter((product) => product.id !== id);
     setProducts(updatedlist);
@@ -74,13 +52,13 @@ function App() {
         toggleCurrentTheme={toggleCurrentTheme}
         buttonText={buttonText}
       />
+
       <Switch>
+        <Route path="/products/:productSlug">
+          <ProductDetail products={_products} deleteProduct={deleteProduct} />
+        </Route>
         <Route path="/products">
-          <ProductsList
-            deleteProduct={deleteProduct}
-            products={_products}
-            setproduct={setproduct}
-          />
+          <ProductsList deleteProduct={deleteProduct} products={_products} />
         </Route>
         <Route exact path="/">
           <Home />
