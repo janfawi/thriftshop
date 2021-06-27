@@ -4,11 +4,15 @@ import { useState } from "react";
 //import styled component
 import { ListWrapper } from "../styles";
 import Searchbar from "./Searchbar";
-const ProductsList = (props) => {
+import productStore from "../stores/productStore";
+import { observer } from "mobx-react";
+
+const ProductsList = () => {
+  console.log("hello world");
   const [input, setinput] = useState("");
   console.log(input);
-  const products = props.products;
-
+  const products = productStore.products;
+  console.log(products);
   const ProductsListFilter = products.filter(
     (product) =>
       product.name.includes(input.toLowerCase()) ||
@@ -16,11 +20,7 @@ const ProductsList = (props) => {
   );
 
   const ProductRenderMap = ProductsListFilter.map((product) => (
-    <ProductItem
-      deleteProduct={props.deleteProduct}
-      product={product}
-      key={product.id}
-    />
+    <ProductItem product={product} key={product.id} />
   ));
 
   return (
@@ -31,4 +31,4 @@ const ProductsList = (props) => {
   );
 };
 
-export default ProductsList;
+export default observer(ProductsList);

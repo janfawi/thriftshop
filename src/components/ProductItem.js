@@ -13,10 +13,7 @@ const ProductItem = (props) => {
       </Link>
       <p>{product.name}</p>
       <p className="product-price">{product.price} KD</p>
-      <DeleteButton
-        productid={product.id}
-        deleteProduct={props.deleteProduct}
-      />
+      <DeleteButton productid={product.id} />
     </ProductWrapper>
   );
 };

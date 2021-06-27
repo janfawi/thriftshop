@@ -2,11 +2,12 @@ import React from "react";
 import { DetailsWrapper } from "../styles";
 import DeleteButton from "./buttons/DeleteButton";
 import { Redirect, useParams } from "react-router-dom";
-
-const ProductDetail = (props) => {
+import productStore from "../stores/productStore";
+import { observer } from "mobx-react";
+const ProductDetail = () => {
   // console.log(props);
   const productSlug = useParams().productSlug;
-  const product = props.products.find(
+  const product = productStore.products.find(
     (product) => product.slug === productSlug
   );
   // const product = props.product[0];
@@ -21,15 +22,12 @@ const ProductDetail = (props) => {
 
         <img src={product.image} alt={product.name} />
       </DetailsWrapper>
-      <DeleteButton
-        productid={product.id}
-        deleteProduct={props.deleteProduct}
-      />
+      <DeleteButton productid={product.id} />
     </>
   );
 };
 
-export default ProductDetail;
+export default observer(ProductDetail);
 
 // const ProductDetail = (props) => {
 //"" these is deconstructing the product"""
