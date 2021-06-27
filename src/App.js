@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 import LightLogo from "./t2.png";
 import darkLogo from "./t1.png";
 import NavBar from "./components/NavBar";
+import productStore from "./stores/productStore";
+
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
   const toggleCurrentTheme = () => {
@@ -37,12 +39,7 @@ function App() {
     },
   };
   // 08 product delete
-  const [_products, setProducts] = useState(products);
-
-  const deleteProduct = (id) => {
-    const updatedlist = _products.filter((product) => product.id !== id);
-    setProducts(updatedlist);
-  };
+  // const [_products, setProducts] = useState(products);
 
   return (
     <ThemeProvider theme={theme[currentTheme]}>
@@ -55,10 +52,10 @@ function App() {
 
       <Switch>
         <Route path="/products/:productSlug">
-          <ProductDetail products={_products} deleteProduct={deleteProduct} />
+          <ProductDetail />
         </Route>
         <Route path="/products">
-          <ProductsList deleteProduct={deleteProduct} products={_products} />
+          <ProductsList />
         </Route>
         <Route exact path="/">
           <Home />
