@@ -1,8 +1,9 @@
 // styled component
-
+import { BiDuplicate } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
+
 ${"" /* import { Link } from "react-router-dom"; */}
 
 
@@ -80,5 +81,18 @@ export const Logo = styled(Link)`
   padding: 0.75em;
   img {
     width: 8rem;
+  }
+`;
+export const BiDuplicateStyled = styled(BiDuplicate)`
+  color: ${(props) => props.theme.mainColor};
+  margin-left: 70%;
+`;
+
+export const CreateButtonStyled = styled.button`
+  color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.mainColor};
+  &:hover {
+    color: ${(props) => props.theme.mainColor};
+    background-color: ${(props) => props.theme.backgroundColor};
   }
 `;

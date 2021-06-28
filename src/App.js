@@ -12,6 +12,7 @@ import LightLogo from "./t2.png";
 import darkLogo from "./t1.png";
 import NavBar from "./components/NavBar";
 import productStore from "./stores/productStore";
+// import { BiDuplicate } from "react-icons/bi";
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
@@ -55,6 +56,8 @@ function App() {
           <ProductDetail />
         </Route>
         <Route path="/products">
+          {/* <BiDuplicate /> */}
+
           <ProductsList />
         </Route>
         <Route exact path="/">

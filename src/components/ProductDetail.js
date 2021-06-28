@@ -10,7 +10,6 @@ const ProductDetail = () => {
   const product = productStore.products.find(
     (product) => product.slug === productSlug
   );
-  // const product = props.product[0];
 
   if (!product) return <Redirect to="/products" />;
   return (
@@ -28,17 +27,3 @@ const ProductDetail = () => {
 };
 
 export default observer(ProductDetail);
-
-// const ProductDetail = (props) => {
-//"" these is deconstructing the product"""
-//   const product = props.product;
-//   return (
-//     <div>
-//       <h1>{product.name}</h1>
-//       <img src={product.image} alt={product.name} />
-//       <p>{product.description}</p>
-//       <p>{product.price} KD</p>
-//       <h2>Hi I'm details component</h2>
-//     </div>
-//   );
-// };

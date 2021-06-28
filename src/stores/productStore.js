@@ -1,6 +1,6 @@
 import products from "../products";
 import { makeAutoObservable } from "mobx";
-import { product } from "prelude-ls";
+import slugify from "react-slugify";
 
 class ProductStore {
   products = products;
@@ -12,6 +12,13 @@ class ProductStore {
       (product) => product.id !== id
     );
     this.products = updadtedProducts;
+  };
+  createProduct = (newProduct) => {
+    newProduct.id = this.products[this.products.length - 1].id + 1;
+    newProduct.slug = slugify(newProduct.name);
+    this.products.push(newProduct);
+
+    console.log("CookieStore -> createCookie -> this.cookies", this.cookies);
   };
 }
 
