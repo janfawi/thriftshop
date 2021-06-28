@@ -42,6 +42,7 @@ const ProductModal = (props) => {
                 type="text"
                 className="form-control"
                 onChange={handleChange}
+                required
               />
             </div>
             <div className="col-6">
@@ -52,6 +53,7 @@ const ProductModal = (props) => {
                 min="1"
                 className="form-control"
                 onChange={handleChange}
+                required
               />
             </div>
           </div>
@@ -62,6 +64,7 @@ const ProductModal = (props) => {
               type="text"
               className="form-control"
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -71,6 +74,7 @@ const ProductModal = (props) => {
               type="text"
               className="form-control"
               onChange={handleChange}
+              required
             />
           </div>
           <CreateButtonStyled className="btn float-right">
