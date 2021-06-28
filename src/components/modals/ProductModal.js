@@ -5,12 +5,15 @@ import { CreateButtonStyled } from "../../styles";
 import productStore from "../../stores/productStore";
 
 const ProductModal = (props) => {
-  const [product, setproduct] = useState({
-    name: "",
-    price: 0,
-    description: "",
-    image: "",
-  });
+  console.log(props);
+  const [product, setproduct] = useState(
+    props.oldProduct ?? {
+      name: "",
+      price: 0,
+      description: "",
+      image: "",
+    }
+  );
   const handleChange = (event) => {
     setproduct({ ...product, [event.target.name]: event.target.value });
     // console.log(event);
@@ -20,8 +23,9 @@ const ProductModal = (props) => {
   //   console.log(product);
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (props.oldProduct) productStore.updateProduct(product);
+    else productStore.createProduct(product);
 
-    productStore.createProduct(product);
     props.closeModal();
     console.log(product);
   };
@@ -39,6 +43,7 @@ const ProductModal = (props) => {
               <label>Name</label>
               <input
                 name="name"
+                value={product.name}
                 type="text"
                 className="form-control"
                 onChange={handleChange}
@@ -49,6 +54,7 @@ const ProductModal = (props) => {
               <label>Price</label>
               <input
                 name="price"
+                value={product.price}
                 type="number"
                 min="1"
                 className="form-control"
@@ -61,6 +67,7 @@ const ProductModal = (props) => {
             <label>Description</label>
             <input
               name="description"
+              value={product.description}
               type="text"
               className="form-control"
               onChange={handleChange}
@@ -71,6 +78,7 @@ const ProductModal = (props) => {
             <label>Image</label>
             <input
               name="image"
+              value={product.image}
               type="text"
               className="form-control"
               onChange={handleChange}
@@ -78,7 +86,7 @@ const ProductModal = (props) => {
             />
           </div>
           <CreateButtonStyled className="btn float-right">
-            Create
+            {props.oldProduct ? "Update" : "Create"}
           </CreateButtonStyled>
         </form>
       </Modal>

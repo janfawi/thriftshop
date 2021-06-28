@@ -18,7 +18,25 @@ class ProductStore {
     newProduct.slug = slugify(newProduct.name);
     this.products.push(newProduct);
 
-    console.log("CookieStore -> createCookie -> this.cookies", this.cookies);
+    console.log("Productstore -> createProduct -> this.product", this.product);
+  };
+  updateProduct = (updatedProduct) => {
+    const product = this.products.find(
+      (product) => product.id === updatedProduct.id
+    );
+    // console.log(product);
+    // console.log(
+    //   "ProductStore -> updateProduct -> updatedProduct",
+    //   updatedProduct
+    // );
+
+    // product.name = updatedProduct.name;
+    // product.price = updatedProduct.price;
+    // product.description = updatedProduct.description;
+    // product.image = updatedProduct.image;
+
+    for (const value in product) product[value] = updatedProduct[value];
+    product.slug = slugify(product.name);
   };
 }
 

@@ -9,6 +9,7 @@ import { observer } from "mobx-react";
 import { BiDuplicate } from "react-icons/bi";
 import ProductModal from "./modals/ProductModal";
 import AddButton from "./buttons/AddButton";
+import UpdateButton from "./buttons/UpdateButton";
 
 const ProductsList = () => {
   console.log("hello world");
